@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Josefin+Slab:wght@400;600&family=Reggae+One&display=swap");
+
 .weather-container {
   background: rgba(178, 69, 146, 0.7); /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -20,14 +22,18 @@
 .city-title {
   padding-top: 30px;
   color: #e9ecf5;
+  font-family: "Bangers", cursive;
+  font-size: 5em;
 }
 
 .current-time {
   color: #f9f871;
+  font-family: "Reggae One", cursive;
 }
 
 .current-date {
   color: #80ffdb;
+  font-family: "Reggae One", cursive;
 }
 
 .temp-display {
@@ -37,26 +43,32 @@
 .current-temp {
   display: inline;
   vertical-align: middle;
+  font-family: "Reggae One", cursive;
+  color: #f9f871;
+  font-size: 3em;
 }
 
 .temp-btn {
   vertical-align: middle;
   background-color: transparent;
+  color: #f9f871;
   border: none;
-  color: #e9ecf5;
   font-size: 1.2em;
+  font-family: "Bangers", cursive;
+  font-size: 2em;
 }
 
 .temp-btn:hover {
-  color: #f9f871;
+  color: #e9ecf5;
 }
 
 .large-icon {
   display: inline;
+  height: 130px;
 }
 
 .small-icon {
-  height: 30px;
+  height: 60px;
   display: inline;
   margin: 5px;
 }
@@ -69,6 +81,9 @@
   list-style: none;
   margin: 0 auto;
   padding: 0;
+  font-family: "Bangers", cursive;
+  font-size: 2em;
+  color: #410744;
 }
 
 .search {

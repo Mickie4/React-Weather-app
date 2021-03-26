@@ -54,7 +54,7 @@ export default function Weather() {
                 alt='weather-icon'
                 className='small-icon img-fluid'
               />{" "}
-              <p className='temps'>23C / 12C</p>
+              <p className='temps'>23C | 12C</p>
             </li>
             <li>
               FRI{" "}
@@ -76,9 +76,12 @@ export default function Weather() {
             </li>
           </ul>
         </div>
-        <button className='search mt-3'>
-          <i class='fa fa-power-off'></i>
-        </button>
+        <form>
+          <input type='text' placeholder='Enter city' />
+          <button className='search mt-3'>
+            <i class='fa fa-power-off'></i>
+          </button>
+        </form>
       </div>
     </div>
   );
