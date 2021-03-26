@@ -21,19 +21,20 @@
 
 .city-title {
   padding-top: 30px;
-  color: #e9ecf5;
+  color: #2c1148;
   font-family: "Bangers", cursive;
   font-size: 5em;
 }
 
 .current-time {
-  color: #7ed824;
+  color: #33ee21;
   font-family: "Reggae One", cursive;
 }
 
 .current-date {
-  color: #e9ecf5;
+  color: #2c1148;
   font-family: "Reggae One", cursive;
+  font-size: 1.3em;
 }
 
 .temp-display {
@@ -44,14 +45,14 @@
   display: inline;
   vertical-align: middle;
   font-family: "Reggae One", cursive;
-  color: #80ffdb;
+  color: #33ee21;
   font-size: 3em;
 }
 
 .temp-btn {
   vertical-align: middle;
   background-color: transparent;
-  color: #80ffdb;
+  color: #33ee21;
   border: none;
   font-size: 1.2em;
   font-family: "Bangers", cursive;
@@ -61,12 +62,6 @@
 .temp-btn:hover {
   color: #e9ecf5;
 }
-
-.large-icon {
-  display: inline;
-  height: 130px;
-}
-
 .small-icon {
   height: 60px;
   display: inline;
@@ -83,7 +78,7 @@
   padding: 0;
   font-family: "Bangers", cursive;
   font-size: 2em;
-  color: #ffff27;
+  color: #2c1148;
 }
 
 .small-btn {
@@ -91,13 +86,13 @@
   margin: 2px;
   background-color: transparent;
   border: none;
-  color: #80ffdb;
+  color: #2c1148;
 }
 
 .search {
   border-radius: 50%;
   border: none;
-  color: #80ffdb;
+  color: #ee9945;
   font-weight: bold;
   width: 80px;
   height: 80px;

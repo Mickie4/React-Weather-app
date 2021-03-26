@@ -1,22 +1,32 @@
 import React from "react";
 import "./Weather.css";
-import sunny from "./media/weather-icon.png";
+import ReactAnimatedWeather from "react-animated-weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBullseye,
-  faCoffee,
   faLocationArrow,
   faPowerOff,
   faSearch,
+  faLongArrowAltUp,
+  faLongArrowAltDown,
 } from "@fortawesome/free-solid-svg-icons";
 const powerBtn = <FontAwesomeIcon icon={faPowerOff} size='3x' />;
 const locationBtn = <FontAwesomeIcon icon={faLocationArrow} size='lg' />;
 const searchBtn = <FontAwesomeIcon icon={faSearch} size='lg' />;
+const tempUpIcon = <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' />;
+const tempDownIcon = <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />;
+const rainIcon = <ReactAnimatedWeather icon='RAIN' size='40' color='#EE9945' />;
+const clearNight = (
+  <ReactAnimatedWeather icon='CLEAR_NIGHT' size='40' color='#EE9945' />
+);
+const cloudyDay = (
+  <ReactAnimatedWeather icon='PARTLY_CLOUDY_DAY' size='170' color='#EE9945' />
+);
+const windIcon = <ReactAnimatedWeather icon='WIND' size='40' color='#EE9945' />;
 
 export default function Weather() {
   return (
     <div className='weather'>
-      <div className='weather-container col-4'>
+      <div className='weather-container col-md-4 col-sm-8'>
         <div className='row'>
           <div className='col-12'>
             <h1 className='city-title'>BERLIN</h1>
@@ -28,11 +38,7 @@ export default function Weather() {
         </div>
         <div className='row'>
           <div className='col-12 temp-display'>
-            <img
-              src={sunny}
-              alt='weather icon'
-              className='img-fluid large-icon'
-            />
+            <div className='large-icon'>{cloudyDay}</div>
             <h1 className='current-temp ml-2'>22°</h1>
             <button className='temp-btn'>C</button>
             <button className='temp-btn'>F</button>
@@ -41,31 +47,31 @@ export default function Weather() {
         <div className='col-12 m-0 p-0'>
           <ul className='forecast mt-5'>
             <li>
-              FRI{" "}
-              <img
-                src={sunny}
-                alt='weather-icon'
-                className='small-icon img-fluid'
-              />{" "}
-              <p className='temps'>23C | 12C</p>
+              <p className='temps'>
+                {" "}
+                FRI <span className='small-icon'>{rainIcon}</span>
+                <span>{tempUpIcon} 23°</span>
+                {""} / {""}
+                <span>{tempDownIcon} 12°</span>
+              </p>
             </li>
             <li>
-              FRI{" "}
-              <img
-                src={sunny}
-                alt='weather-icon'
-                className='small-icon img-fluid'
-              />{" "}
-              <p className='temps'>23C / 12C</p>
+              <p className='temps'>
+                {" "}
+                SAT <span className='small-icon'>{clearNight}</span>
+                <span>{tempUpIcon} 17°</span>
+                {""} / {""}
+                <span>{tempDownIcon} 12°</span>
+              </p>
             </li>
             <li>
-              FRI{" "}
-              <img
-                src={sunny}
-                alt='weather-icon'
-                className='small-icon img-fluid'
-              />{" "}
-              <p className='temps'>23C / 12C</p>
+              <p className='temps'>
+                {" "}
+                SAT <span className='small-icon'>{windIcon}</span>
+                <span>{tempUpIcon} 15°</span>
+                {""} / {""}
+                <span>{tempDownIcon} 10°</span>
+              </p>
             </li>
           </ul>
         </div>
