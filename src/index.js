@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
-import "@fortawesome/fontawesome-free/js/fontawesome";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

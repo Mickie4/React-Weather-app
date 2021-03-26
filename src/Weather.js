@@ -16,15 +16,19 @@ export default function Weather() {
           </div>
         </div>
         <div className='row'>
-          <div className='col-12'>
-            <img src={sunny} alt='weather icon' className='img-fluid' />
-          </div>
-          <div className='col-12'>
-            <h1>22C</h1>
+          <div className='col-12 temp-display'>
+            <img
+              src={sunny}
+              alt='weather icon'
+              className='img-fluid large-icon'
+            />
+            <h1 className='current-temp ml-2'>22°</h1>
+            <button className='temp-btn'>C</button>
+            <button className='temp-btn'>F</button>
           </div>
         </div>
-        <div className='col-12'>
-          <ul className='text-center'>
+        <div className='col-12 m-0 p-0'>
+          <ul className='forecast mt-5'>
             <li>
               FRI{" "}
               <img
@@ -32,10 +36,49 @@ export default function Weather() {
                 alt='weather-icon'
                 className='small-icon img-fluid'
               />{" "}
+              <p className='temps'>23C / 12C</p>
+            </li>
+            <li>
+              FRI{" "}
+              <img
+                src={sunny}
+                alt='weather-icon'
+                className='small-icon img-fluid'
+              />{" "}
+              <p className='temps'>23C / 12C</p>
+            </li>
+            <li>
+              FRI{" "}
+              <img
+                src={sunny}
+                alt='weather-icon'
+                className='small-icon img-fluid'
+              />{" "}
+              <p className='temps'>23C / 12C</p>
+            </li>
+            <li>
+              FRI{" "}
+              <img
+                src={sunny}
+                alt='weather-icon'
+                className='small-icon img-fluid'
+              />{" "}
+              <p className='temps'>23C / 12C</p>
+            </li>
+            <li>
+              FRI{" "}
+              <img
+                src={sunny}
+                alt='weather-icon'
+                className='small-icon img-fluid'
+              />{" "}
+              <p className='temps'>23C / 12C</p>
             </li>
           </ul>
-          <span></span>
         </div>
+        <button className='search mt-3'>
+          <i class='fa fa-power-off'></i>
+        </button>
       </div>
     </div>
   );
