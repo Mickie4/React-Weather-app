@@ -1,6 +1,17 @@
 import React from "react";
 import "./Weather.css";
 import sunny from "./media/weather-icon.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBullseye,
+  faCoffee,
+  faLocationArrow,
+  faPowerOff,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
+const powerBtn = <FontAwesomeIcon icon={faPowerOff} size='3x' />;
+const locationBtn = <FontAwesomeIcon icon={faLocationArrow} size='lg' />;
+const searchBtn = <FontAwesomeIcon icon={faSearch} size='lg' />;
 
 export default function Weather() {
   return (
@@ -36,24 +47,6 @@ export default function Weather() {
                 alt='weather-icon'
                 className='small-icon img-fluid'
               />{" "}
-              <p className='temps'>23C / 12C</p>
-            </li>
-            <li>
-              FRI{" "}
-              <img
-                src={sunny}
-                alt='weather-icon'
-                className='small-icon img-fluid'
-              />{" "}
-              <p className='temps'>23C / 12C</p>
-            </li>
-            <li>
-              FRI{" "}
-              <img
-                src={sunny}
-                alt='weather-icon'
-                className='small-icon img-fluid'
-              />{" "}
               <p className='temps'>23C | 12C</p>
             </li>
             <li>
@@ -76,11 +69,20 @@ export default function Weather() {
             </li>
           </ul>
         </div>
-        <form>
-          <input type='text' placeholder='Enter city' />
-          <button className='search mt-3'>
-            <i class='fa fa-power-off'></i>
-          </button>
+
+        <form className='row mt-5'>
+          <div className='col-md-10'>
+            <input
+              type='text'
+              placeholder='Enter city'
+              className='form-control'
+            />
+          </div>
+          <button className='small-btn'>{searchBtn}</button>
+          <button className='small-btn'>{locationBtn}</button>
+          <div className='col-12'>
+            <button className='search mt-5'>{powerBtn}</button>
+          </div>
         </form>
       </div>
     </div>

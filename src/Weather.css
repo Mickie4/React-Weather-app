@@ -27,12 +27,12 @@
 }
 
 .current-time {
-  color: #f9f871;
+  color: #7ed824;
   font-family: "Reggae One", cursive;
 }
 
 .current-date {
-  color: #80ffdb;
+  color: #e9ecf5;
   font-family: "Reggae One", cursive;
 }
 
@@ -44,14 +44,14 @@
   display: inline;
   vertical-align: middle;
   font-family: "Reggae One", cursive;
-  color: #f9f871;
+  color: #80ffdb;
   font-size: 3em;
 }
 
 .temp-btn {
   vertical-align: middle;
   background-color: transparent;
-  color: #f9f871;
+  color: #80ffdb;
   border: none;
   font-size: 1.2em;
   font-family: "Bangers", cursive;
@@ -83,13 +83,21 @@
   padding: 0;
   font-family: "Bangers", cursive;
   font-size: 2em;
-  color: #410744;
+  color: #ffff27;
+}
+
+.small-btn {
+  vertical-align: bottom;
+  margin: 2px;
+  background-color: transparent;
+  border: none;
+  color: #80ffdb;
 }
 
 .search {
   border-radius: 50%;
   border: none;
-  color: aliceblue;
+  color: #80ffdb;
   font-weight: bold;
   width: 80px;
   height: 80px;
