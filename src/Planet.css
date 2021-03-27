@@ -15,6 +15,21 @@
   margin: 0 auto;
   padding-bottom: 30px;
   box-shadow: 3px 3px 26px 8px rgba(8, 19, 51, 0.84);
-  height: 200px;
-  width: 100px;
+  height: 700px;
+  width: 350px;
+}
+
+.loading-title {
+  padding-top: 30px;
+  color: #2c1148;
+  font-family: "Bangers", cursive;
+  font-size: 3.5em;
+}
+
+.loader-icon {
+  margin-top: 50px;
+}
+
+.search {
+  margin-top: 150px;
 }

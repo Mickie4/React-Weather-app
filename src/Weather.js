@@ -33,9 +33,9 @@ export default function Weather() {
 
   //Handle function for the API's Response
   function handleResponse(response) {
-    // setReady(true);
+    setReady(true);
     console.log(response.data);
-    setTemperature(response.data.main.temp);
+    setTemperature(Math.round(response.data.main.temp));
   }
 
   if (ready) {
@@ -54,7 +54,7 @@ export default function Weather() {
           <div className='row'>
             <div className='col-12 temp-display'>
               <div className='large-icon'>{cloudyDay}</div>
-              <h1 className='current-temp ml-2'>22°</h1>
+              <h1 className='current-temp ml-2'>{temperature}°</h1>
               <button className='temp-btn'>C</button>
               <button className='temp-btn'>F</button>
             </div>
