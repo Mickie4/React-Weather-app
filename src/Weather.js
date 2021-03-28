@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
+import Loading from "./Loading";
 import ReactAnimatedWeather from "react-animated-weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,114 +11,151 @@ import {
   faLongArrowAltUp,
   faLongArrowAltDown,
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import Planet from "./Planet";
-import { unstable_createPortal } from "react-dom";
-const powerBtn = <FontAwesomeIcon icon={faPowerOff} size='3x' />;
-const locationBtn = <FontAwesomeIcon icon={faLocationArrow} size='lg' />;
-const searchBtn = <FontAwesomeIcon icon={faSearch} size='lg' />;
-const tempUpIcon = <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' />;
-const tempDownIcon = <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />;
+
 const rainIcon = <ReactAnimatedWeather icon='RAIN' size='40' color='#EE9945' />;
 const clearNight = (
   <ReactAnimatedWeather icon='CLEAR_NIGHT' size='40' color='#EE9945' />
 );
 const cloudyDay = (
-  <ReactAnimatedWeather icon='PARTLY_CLOUDY_DAY' size='170' color='#EE9945' />
+  <ReactAnimatedWeather icon='PARTLY_CLOUDY_DAY' size='90' color='#EE9945' />
 );
 const windIcon = <ReactAnimatedWeather icon='WIND' size='40' color='#EE9945' />;
 
+//App starts here:
+
 export default function Weather() {
-  const [temperature, setTemperature] = useState(null);
+  let city = "New York";
   const [ready, setReady] = useState(false);
-  let city = "Paris";
+  const [weatherData, setWeatherData] = useState({});
 
   //Handle function for the API's Response
   function handleResponse(response) {
+    console.log(response);
+    setWeatherData({
+      temperature: Math.round(response.data.main.temp),
+      maxTemp: Math.round(response.data.main.temp_max),
+      minTemp: Math.round(response.data.main.temp_min),
+      cityResponse: response.data.name,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed),
+    });
     setReady(true);
-    console.log(response.data);
-    setTemperature(Math.round(response.data.main.temp));
   }
 
+  //returns
   if (ready) {
     return (
       <div className='weather'>
         <div className='weather-container col-md-4 col-sm-8'>
           <div className='row'>
-            <div className='col-12'>
-              <h1 className='city-title'>{city}</h1>
-            </div>
-            <div className='col-12'>
-              <h2 className='current-time'>11:00 AM</h2>
-              <p className='current-date'>Thu 25 Mar</p>
+            <div className='col-12 mt-4 p-2'>
+              <form>
+                <input
+                  type='text'
+                  placeholder='Enter a terrestrial destination HERE'
+                  className='search-bar'
+                />
+                <button className='small-btn'>
+                  <FontAwesomeIcon icon={faSearch} size='1x' />
+                </button>
+                <button className='small-btn'>
+                  <FontAwesomeIcon icon={faLocationArrow} size='1x' />
+                </button>
+              </form>
             </div>
           </div>
           <div className='row'>
-            <div className='col-12 temp-display'>
+            <div className='col-12'>
+              <h1 className='city-title'>{weatherData.cityResponse}</h1>
+            </div>
+            <div className='col-12 mb-5'>
+              <p className='current-date'>THU 25 Mar</p>
+              <h2 className='current-time'>11:00 AM</h2>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-6 temp-display'>
               <div className='large-icon'>{cloudyDay}</div>
-              <h1 className='current-temp ml-2'>{temperature}°</h1>
+              <h1 className='current-temp ml-2'>{weatherData.temperature}°</h1>
               <button className='temp-btn'>C</button>
               <button className='temp-btn'>F</button>
             </div>
-          </div>
-          <div className='col-12 m-0 p-0'>
-            <ul className='forecast mt-5'>
-              <li>
-                <p className='temps'>
-                  {" "}
-                  FRI <span className='small-icon'>{rainIcon}</span>
-                  <span>{tempUpIcon} 23°</span>
-                  {""} / {""}
-                  <span>{tempDownIcon} 12°</span>
-                </p>
-              </li>
-              <li>
-                <p className='temps'>
-                  {" "}
-                  SAT <span className='small-icon'>{clearNight}</span>
-                  <span>{tempUpIcon} 17°</span>
-                  {""} / {""}
-                  <span>{tempDownIcon} 12°</span>
-                </p>
-              </li>
-              <li>
-                <p className='temps'>
-                  {" "}
-                  SAT <span className='small-icon'>{windIcon}</span>
-                  <span>{tempUpIcon} 15°</span>
-                  {""} / {""}
-                  <span>{tempDownIcon} 10°</span>
-                </p>
-              </li>
-            </ul>
-          </div>
-
-          <form className='row mt-5'>
-            <div className='col-md-10'>
-              <input
-                type='text'
-                placeholder='Enter city'
-                className='form-control'
-              />
+            <div className='col-6 text-left'>
+              <p className='description'>{weatherData.description}</p>
+              <ul className='forecast'>
+                <li>Humidity:{weatherData.humidity}%</li>
+                <li>Wind:{weatherData.wind}Km/h</li>
+              </ul>
             </div>
-            <button className='small-btn'>{searchBtn}</button>
-            <button className='small-btn'>{locationBtn}</button>
-            <div className='col-12'>
-              <button className='search mt-5'>{powerBtn}</button>
+            <div className='col-12 m-0 p-0 list-wrapper'>
+              <ul className='forecast mt-5'>
+                <li>
+                  <p className='temps'>
+                    {" "}
+                    16:00 <span className='small-icon'>{rainIcon}</span>
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' />{" "}
+                      {weatherData.maxTemp}°
+                    </span>
+                    {""} / {""}
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
+                      {weatherData.minTemp}°
+                    </span>
+                  </p>
+                </li>
+                <li>
+                  <p className='temps'>
+                    {" "}
+                    19:00 <span className='small-icon'>{clearNight}</span>
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 17°
+                    </span>
+                    {""} / {""}
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
+                      12°
+                    </span>
+                  </p>
+                </li>
+                <li>
+                  <p className='temps'>
+                    {" "}
+                    22:00 <span className='small-icon'>{windIcon}</span>
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 15°
+                    </span>
+                    {""} / {""}
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
+                      10°
+                    </span>
+                  </p>
+                </li>
+              </ul>
             </div>
-          </form>
+          </div>
+          <div className='row'>
+            <div className='col-12 mt-5'>
+              <button className='lightBtn mt-5'>
+                <FontAwesomeIcon icon={faPowerOff} size='3x' />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
   } else {
     //Call to the API with AXIOS
     const apiKey = "0603e85b4ce086e6bb52d7cdc7bcffb5";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&cnt=3`;
     axios.get(apiUrl).then(handleResponse);
 
+    //Returns
     return (
       <div className='weather'>
-        <Planet />
+        <Loading />
       </div>
     );
   }

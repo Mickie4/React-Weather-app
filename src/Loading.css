@@ -1,4 +1,4 @@
-.planet-container {
+.loading-container {
   background: rgba(178, 69, 146, 0.7); /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
@@ -16,20 +16,9 @@
   padding-bottom: 30px;
   box-shadow: 3px 3px 26px 8px rgba(8, 19, 51, 0.84);
   height: 700px;
-  width: 350px;
-}
-
-.loading-title {
-  padding-top: 30px;
-  color: #2c1148;
-  font-family: "Bangers", cursive;
-  font-size: 3.5em;
+  width: 500px;
 }
 
 .loader-icon {
-  margin-top: 50px;
-}
-
-.search {
-  margin-top: 150px;
+  margin-top: 200px;
 }

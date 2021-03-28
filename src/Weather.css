@@ -20,21 +20,22 @@
 }
 
 .city-title {
-  padding-top: 30px;
   color: #2c1148;
   font-family: "Bangers", cursive;
-  font-size: 5em;
+  font-size: 3em;
+  letter-spacing: 5px;
 }
 
 .current-time {
   color: #33ee21;
   font-family: "Reggae One", cursive;
+  font-size: 1.5em;
 }
 
 .current-date {
   color: #2c1148;
   font-family: "Reggae One", cursive;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 .temp-display {
@@ -54,14 +55,28 @@
   background-color: transparent;
   color: #33ee21;
   border: none;
-  font-size: 1.2em;
   font-family: "Bangers", cursive;
   font-size: 2em;
+  transition: all 0.5s ease-in-out;
 }
 
 .temp-btn:hover {
-  color: #e9ecf5;
+  color: #ee9945;
 }
+
+.temp-btn:focus {
+  font-size: 2.5em;
+  color: #ee9945;
+  text-decoration: underline;
+}
+
+.description {
+  font-family: "Bangers", cursive;
+  color: #ee9945;
+  font-size: 2em;
+  letter-spacing: 3px;
+}
+
 .small-icon {
   height: 60px;
   display: inline;
@@ -76,10 +91,14 @@
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  font-family: "Bangers", cursive;
-  font-size: 2em;
+  font-family: "Reggae One", cursive;
+  font-size: 1.3em;
   color: #2c1148;
 }
+
+/* .forecast li {
+  display: inline;
+} */
 
 .small-btn {
   vertical-align: bottom;
@@ -87,16 +106,36 @@
   background-color: transparent;
   border: none;
   color: #2c1148;
+  transition: all 0.5s ease-in-out;
 }
 
-.search {
+.small-btn:hover {
+  color: #33ee21;
+}
+
+.search-bar {
+  background-color: transparent;
+  border: solid 2px #33ee21;
+  border-radius: 0.3em;
+  width: 300px;
+  padding: 2px;
+}
+
+.search-bar::placeholder {
+  color: #6f0e5c;
+  text-align: center;
+  font-family: "Bangers";
+  font-size: 1em;
+}
+
+.lightBtn {
   border-radius: 50%;
   border: none;
-  color: #ee9945;
+  color: #33ee21;
   font-weight: bold;
   width: 80px;
   height: 80px;
-  background: #f2994a; /* fallback for old browsers */
+  background: #410744; /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #e54b7b, #410744);
   background: linear-gradient(to bottom, #e54b7b, #410744);
   box-shadow: inset 0px 3px 26px 8px rgba(65, 7, 68, 0.5);
