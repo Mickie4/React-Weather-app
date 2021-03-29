@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import Loading from "./Loading";
+import FormattedDate from "./FormattedDate";
+import FormattedTime from "./FormattedTime";
 import ReactAnimatedWeather from "react-animated-weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,25 +14,23 @@ import {
   faLongArrowAltDown,
 } from "@fortawesome/free-solid-svg-icons";
 
-const rainIcon = <ReactAnimatedWeather icon='RAIN' size='40' color='#EE9945' />;
+const rainIcon = <ReactAnimatedWeather icon='RAIN' size={40} color='#EE9945' />;
 const clearNight = (
-  <ReactAnimatedWeather icon='CLEAR_NIGHT' size='40' color='#EE9945' />
+  <ReactAnimatedWeather icon='CLEAR_NIGHT' size={40} color='#EE9945' />
 );
 const cloudyDay = (
-  <ReactAnimatedWeather icon='PARTLY_CLOUDY_DAY' size='90' color='#EE9945' />
+  <ReactAnimatedWeather icon='PARTLY_CLOUDY_DAY' size={90} color='#EE9945' />
 );
-const windIcon = <ReactAnimatedWeather icon='WIND' size='40' color='#EE9945' />;
+const windIcon = <ReactAnimatedWeather icon='WIND' size={40} color='#EE9945' />;
 
 //App starts here:
 
-export default function Weather() {
-  let city = "New York";
+export default function Weather(props) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
 
   //Handle function for the API's Response
   function handleResponse(response) {
-    console.log(response);
     setWeatherData({
       temperature: Math.round(response.data.main.temp),
       maxTemp: Math.round(response.data.main.temp_max),
@@ -39,6 +39,7 @@ export default function Weather() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
+      date: new Date(response.data.dt * 1000),
     });
     setReady(true);
   }
@@ -47,7 +48,7 @@ export default function Weather() {
   if (ready) {
     return (
       <div className='weather'>
-        <div className='weather-container col-md-4 col-sm-8'>
+        <div className='weather-container col-md-5 col-sm-8'>
           <div className='row'>
             <div className='col-12 mt-4 p-2'>
               <form>
@@ -70,8 +71,12 @@ export default function Weather() {
               <h1 className='city-title'>{weatherData.cityResponse}</h1>
             </div>
             <div className='col-12 mb-5'>
-              <p className='current-date'>THU 25 Mar</p>
-              <h2 className='current-time'>11:00 AM</h2>
+              <div className='current-date'>
+                <FormattedDate date={weatherData.date} />
+              </div>
+              <h2 className='current-time mt-2'>
+                <FormattedTime date={weatherData.date} />
+              </h2>
             </div>
           </div>
           <div className='row'>
@@ -149,7 +154,7 @@ export default function Weather() {
   } else {
     //Call to the API with AXIOS
     const apiKey = "0603e85b4ce086e6bb52d7cdc7bcffb5";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&cnt=3`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric&cnt=3`;
     axios.get(apiUrl).then(handleResponse);
 
     //Returns
