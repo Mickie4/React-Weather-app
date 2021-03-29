@@ -18,9 +18,6 @@ const rainIcon = <ReactAnimatedWeather icon='RAIN' size={30} color='#EE9945' />;
 const clearNight = (
   <ReactAnimatedWeather icon='CLEAR_NIGHT' size={30} color='#EE9945' />
 );
-const cloudyDay = (
-  <ReactAnimatedWeather icon='PARTLY_CLOUDY_DAY' size={70} color='#EE9945' />
-);
 const windIcon = <ReactAnimatedWeather icon='WIND' size={30} color='#EE9945' />;
 
 //App starts here:
@@ -36,7 +33,7 @@ export default function Weather(props) {
       maxTemp: Math.round(response.data.main.temp_max),
       minTemp: Math.round(response.data.main.temp_min),
       cityResponse: response.data.name,
-      description: response.data.weather[0].description,
+      description: response.data.weather[0].description.toUpperCase(),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
@@ -48,13 +45,13 @@ export default function Weather(props) {
   if (ready) {
     return (
       <div className='weather'>
-        <div className='weather-container col-md-5 col-sm-8'>
+        <div className='weather-container col-md-6 col-lg-5'>
           <div className='row'>
-            <div className='col-12'>
+            <div className='col-md-12 col-lg-12 col-12 text-center'>
               <form className='my-3'>
                 <input
                   type='text'
-                  placeholder='Enter a terrestrial destination HERE'
+                  placeholder='Enter a city'
                   className='search-bar'
                 />
                 <button className='small-btn'>
@@ -67,8 +64,10 @@ export default function Weather(props) {
             </div>
           </div>
           <div className='row'>
-            <div className='col-6 text-center'>
-              <h1 className='city-title'>{weatherData.cityResponse}</h1>
+            <div className='col-md-6 col-12 text-left'>
+              <h1 className='city-title'>
+                {weatherData.cityResponse.toUpperCase()}
+              </h1>
               <ul className='date-list'>
                 <li className='current-date'>
                   <FormattedDate date={weatherData.date} />
@@ -78,22 +77,30 @@ export default function Weather(props) {
                 </li>
               </ul>
             </div>
-            <div className='col-6 text-center'>
-              <div className='large-icon'>{cloudyDay}</div>
+            <div className='col-md-6 col-12 text-center'>
+              <div className='large-icon'>
+                {
+                  <ReactAnimatedWeather
+                    icon='PARTLY_CLOUDY_DAY'
+                    color='#EE9945'
+                    size={120}
+                  />
+                }
+              </div>
               <h1 className='current-temp'>{weatherData.temperature}°</h1>
               <button className='temp-btn'>C</button>
               <button className='temp-btn'>F</button>
             </div>
           </div>
           <div className='row mt-4'>
-            <div className='col-12 text-center'>
-              <p className='description'>{weatherData.description}</p>
+            <div className='col-md-12 text-center'>
+              <p className='description'>"{weatherData.description}"</p>
               <ul className='forecast'>
                 <li>Humidity:{weatherData.humidity}%</li>
                 <li>Wind:{weatherData.wind}Km/h</li>
               </ul>
             </div>
-            <div className='col-12'>
+            <div className='col-md-12'>
               <ul className='forecast mt-5'>
                 <li>
                   <p className='temps'>
@@ -138,9 +145,52 @@ export default function Weather(props) {
                     </span>
                   </p>
                 </li>
+                <li>
+                  <p className='temps'>
+                    {" "}
+                    01:00 <span className='small-icon'>{clearNight}</span>
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 15°
+                    </span>
+                    {""} / {""}
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
+                      10°
+                    </span>
+                  </p>
+                </li>
+                <li>
+                  <p className='temps'>
+                    {" "}
+                    04:00 <span className='small-icon'>{rainIcon}</span>
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 15°
+                    </span>
+                    {""} / {""}
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
+                      10°
+                    </span>
+                  </p>
+                </li>
+                <li>
+                  <p className='temps'>
+                    {" "}
+                    07:00 <span className='small-icon'>{windIcon}</span>
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 15°
+                    </span>
+                    {""} / {""}
+                    <span>
+                      <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
+                      10°
+                    </span>
+                  </p>
+                </li>
               </ul>
             </div>
           </div>
+
           <div className='row'>
             <div className='col-12 mt-5'>
               <button className='lightBtn mt-5'>

@@ -22,8 +22,9 @@
 .city-title {
   color: #2c1148;
   font-family: "Orbitron", sans-serif;
-  font-size: 2em;
-  letter-spacing: 5px;
+  font-size: 2.5em;
+  /* letter-spacing: 1px; */
+  text-align: left;
 }
 
 .date-list {
@@ -35,13 +36,13 @@
 .current-time {
   color: #33ee21;
   font-family: "Cutive Mono", monospace;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .current-date {
   color: #2c1148;
   font-family: "Cutive Mono", monospace;
-  font-size: 1em;
+  font-size: 1.3em;
 }
 
 .temp-display {
@@ -80,6 +81,7 @@
   font-weight: 700;
   color: #ee9945;
   font-size: 1.7em;
+  letter-spacing: 3px;
 }
 
 .small-icon {
@@ -121,17 +123,17 @@
 
 .search-bar {
   background-color: transparent;
-  border: solid 2px #33ee21;
+  border: dotted 2px #33ee21;
   border-radius: 0.3em;
-  width: 300px;
+  width: auto;
   padding: 2px;
 }
 
 .search-bar::placeholder {
-  color: #6f0e5c;
+  color: #33ee21;
   text-align: center;
   font-family: "Orbitron", sans-serif;
-  font-size: 0.6em;
+  font-size: 0.7em;
   letter-spacing: 1px;
 }
 
@@ -146,4 +148,78 @@
   background: -webkit-linear-gradient(to bottom, #e54b7b, #410744);
   background: linear-gradient(to bottom, #e54b7b, #410744);
   box-shadow: inset 0px 3px 26px 8px rgba(65, 7, 68, 0.5);
+}
+/*---------------------------------------------------------------RESPONSIVE MEDIA QUERIES*/
+
+@media only screen and (max-width: 575px) {
+  .city-title {
+    text-align: center;
+    padding-top: 25px;
+  }
+
+  .date-list {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .city-title {
+    font-size: 1.8em;
+    font-weight: 700;
+  }
+
+  .current-date {
+    font-size: 1.3em;
+  }
+
+  .current-time {
+    font-size: 1.3em;
+  }
+
+  .description {
+    font-size: 1.3em;
+  }
+
+  .forecast {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .city-title {
+    font-size: 3em;
+  }
+
+  .current-date {
+    font-size: 1em;
+  }
+
+  .current-time {
+    font-size: 1em;
+  }
+
+  .search-bar {
+    width: 70%;
+  }
+
+  .small-btn {
+    font-size: 1.2em;
+  }
+
+  form {
+    padding-bottom: 20px;
+  }
+
+  .date-list {
+    padding-left: 15px;
+    font-size: 1.5em;
+  }
+
+  .description {
+    font-size: 2.7em;
+  }
+
+  .forecast {
+    font-size: 2em;
+  }
 }
