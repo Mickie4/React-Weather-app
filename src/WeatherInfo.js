@@ -3,11 +3,6 @@ import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLongArrowAltUp,
-  faLongArrowAltDown,
-} from "@fortawesome/free-solid-svg-icons";
 
 export default function WeatherInfo(props) {
   return (
