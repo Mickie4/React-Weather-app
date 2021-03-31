@@ -2,6 +2,7 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLongArrowAltUp,
@@ -29,9 +30,7 @@ export default function WeatherInfo(props) {
           <div className='large-icon mb-3'>
             <WeatherIcon code={props.data.icon} size={120} />
           </div>
-          <h1 className='current-temp'>{props.data.temperature}°</h1>
-          <button className='temp-btn'>C</button>
-          <button className='temp-btn'>F</button>
+          <WeatherTemperature celsius={props.data.temperature} />
         </div>
       </div>
       <div className='row mt-4'>
@@ -40,19 +39,6 @@ export default function WeatherInfo(props) {
           <ul className='forecast'>
             <li>Humidity:{props.data.humidity}%</li>
             <li>Wind:{props.data.wind}Km/h</li>
-            <li>
-              <p>
-                <span>
-                  <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' />{" "}
-                  {props.data.maxTemp}°
-                </span>
-                {""} | {""}
-                <span>
-                  <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
-                  {props.data.minTemp}°
-                </span>
-              </p>
-            </li>
           </ul>
         </div>
       </div>{" "}
