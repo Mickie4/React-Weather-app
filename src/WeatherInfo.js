@@ -2,6 +2,11 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 import ReactAnimatedWeather from "react-animated-weather";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLongArrowAltUp,
+  faLongArrowAltDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function WeatherInfo(props) {
   return (
@@ -41,6 +46,19 @@ export default function WeatherInfo(props) {
           <ul className='forecast'>
             <li>Humidity:{props.data.humidity}%</li>
             <li>Wind:{props.data.wind}Km/h</li>
+            <li>
+              <p>
+                <span>
+                  <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' />{" "}
+                  {props.data.maxTemp}°
+                </span>
+                {""} | {""}
+                <span>
+                  <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />{" "}
+                  {props.data.minTemp}°
+                </span>
+              </p>
+            </li>
           </ul>
         </div>
       </div>{" "}
