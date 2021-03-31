@@ -1,7 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
-import ReactAnimatedWeather from "react-animated-weather";
+import WeatherIcon from "./WeatherIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLongArrowAltUp,
@@ -26,14 +26,8 @@ export default function WeatherInfo(props) {
           </ul>
         </div>
         <div className='col-md-6 col-12 text-center'>
-          <div className='large-icon'>
-            {
-              <ReactAnimatedWeather
-                icon='PARTLY_CLOUDY_DAY'
-                color='#EE9945'
-                size={120}
-              />
-            }
+          <div className='large-icon mb-3'>
+            <WeatherIcon code={props.data.icon} size={120} />
           </div>
           <h1 className='current-temp'>{props.data.temperature}°</h1>
           <button className='temp-btn'>C</button>

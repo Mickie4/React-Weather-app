@@ -28,6 +28,7 @@ export default function Weather(props) {
       minTemp: Math.round(response.data.main.temp_min),
       cityResponse: response.data.name,
       description: response.data.weather[0].description.toUpperCase(),
+      icon: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
@@ -47,7 +48,6 @@ export default function Weather(props) {
   function changeCity(event) {
     event.preventDefault();
     setCity(event.target.value);
-    console.log(city);
   }
   //returns
   if (ready) {
