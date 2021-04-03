@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/WeatherForecast.css";
+import "../styles/WeatherForecast.css";
 import WeatherIcon from "./WeatherIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
