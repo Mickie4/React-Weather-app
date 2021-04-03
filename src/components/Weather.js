@@ -16,10 +16,11 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const apiKey = "0603e85b4ce086e6bb52d7cdc7bcffb5";
   //c6457dceef34bc5b29fe61bd0c8168e1, 0603e85b4ce086e6bb52d7cdc7bcffb5
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&cnt=3`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   //Handle function for the API's Response
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       temperature: Math.round(response.data.main.temp),
       maxTemp: Math.round(response.data.main.temp_max),
@@ -30,6 +31,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
+      coordinates: response.data.coord,
     });
     setReady(true);
   }
@@ -77,7 +79,7 @@ export default function Weather(props) {
           </div>
           <div className='row'>
             <div className='col-md-12 mt-5'>
-              <WeatherForecast />
+              <WeatherForecast coordinates={weatherData.coordinates} />
             </div>
           </div>
           <div className='row'>

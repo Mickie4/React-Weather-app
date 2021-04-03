@@ -22,3 +22,10 @@
 .loader-icon {
   margin-top: 200px;
 }
+
+.loading-text {
+  color: #2c1148;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+}
