@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Orbitron:wght@500;700&display=swap");
+
+.weather-container {
+  background: rgba(178, 69, 146, 0.7); /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    rgba(241, 95, 121, 0.7),
+    rgba(178, 69, 146, 0.7)
+  );
+  background: linear-gradient(
+    to top,
+    rgba(241, 95, 121, 0.7),
+    rgba(178, 69, 146, 0.7)
+  );
+  border-radius: 10px;
+  border: solid 2px rgba(8, 19, 51, 0.84);
+  margin: 0 auto;
+  padding-bottom: 30px;
+  box-shadow: 3px 3px 26px 8px rgba(8, 19, 51, 0.84);
+}
+
+.small-btn {
+  vertical-align: bottom;
+  margin: 2px;
+  background-color: transparent;
+  border: none;
+  color: #2c1148;
+  transition: all 0.5s ease-in-out;
+}
+
+.small-btn:hover {
+  color: #33ee21;
+}
+
+.search-bar {
+  background-color: transparent;
+  border: dotted 2px #33ee21;
+  border-radius: 0.3em;
+  width: auto;
+  padding: 2px;
+}
+
+.search-bar::placeholder {
+  color: #33ee21;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+}
+
+/*---------------------------------------------------------------RESPONSIVE MEDIA QUERIES*/
+
+@media only screen and (min-width: 1025px) {
+  .search-bar {
+    width: 70%;
+  }
+
+  .small-btn {
+    font-size: 1.2em;
+  }
+
+  form {
+    padding-bottom: 20px;
+  }
+}

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Weather.css";
+import "./styles/Weather.css";
 import Loading from "./Loading";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLocationArrow,
-  faPowerOff,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLocationArrow, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 //App starts here:
 
@@ -72,14 +70,18 @@ export default function Weather(props) {
               </form>
             </div>
           </div>
-          <WeatherInfo data={weatherData} />
-
           <div className='row'>
-            <div className='col-12 mt-5'>
-              <button className='lightBtn mt-5'>
-                <FontAwesomeIcon icon={faPowerOff} size='3x' />
-              </button>
+            <div className='col-md-12'>
+              <WeatherInfo data={weatherData} />
             </div>
+          </div>
+          <div className='row'>
+            <div className='col-md-12 mt-5'>
+              <WeatherForecast />
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-md-12'></div>
           </div>
         </div>
       </div>

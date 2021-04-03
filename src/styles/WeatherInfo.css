@@ -1,24 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Orbitron:wght@500;700&display=swap");
-
-.weather-container {
-  background: rgba(178, 69, 146, 0.7); /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    rgba(241, 95, 121, 0.7),
-    rgba(178, 69, 146, 0.7)
-  );
-  background: linear-gradient(
-    to top,
-    rgba(241, 95, 121, 0.7),
-    rgba(178, 69, 146, 0.7)
-  );
-  border-radius: 10px;
-  border: solid 2px rgba(8, 19, 51, 0.84);
-  margin: 0 auto;
-  padding-bottom: 30px;
-  box-shadow: 3px 3px 26px 8px rgba(8, 19, 51, 0.84);
-}
-
 .city-title {
   color: #2c1148;
   font-family: "Orbitron", sans-serif;
@@ -54,7 +33,7 @@
   vertical-align: middle;
   font-family: "Orbitron", sans-serif;
   color: #33ee21;
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 
 .temp-btn {
@@ -67,19 +46,12 @@
   transition: all 0.5s ease-in-out;
 }
 
-.temp-btn:hover {
-  color: #ee9945;
-}
-
 .temp-btn-active {
   color: #33ee21;
-  font-size: 1.7em;
   vertical-align: middle;
   background-color: transparent;
   border: none;
   font-family: "Orbitron", sans-serif;
-  font-size: 1.3em;
-  transition: all 0.5s ease-in-out;
   text-decoration: underline;
 }
 
@@ -91,71 +63,16 @@
   letter-spacing: 3px;
 }
 
-.small-icon {
-  height: 60px;
-  display: inline;
-  margin: 5px;
-}
-
-.temps {
-  display: inline;
-}
-
-.forecast {
+.description2 {
   list-style: none;
   margin: 0 auto;
   padding: 0;
   font-family: "Cutive Mono", monospace;
-  font-size: 1.3em;
+  font-size: 1.6em;
   font-weight: 700;
   color: #2c1148;
 }
 
-/* .forecast li {
-  display: inline;
-} */
-
-.small-btn {
-  vertical-align: bottom;
-  margin: 2px;
-  background-color: transparent;
-  border: none;
-  color: #2c1148;
-  transition: all 0.5s ease-in-out;
-}
-
-.small-btn:hover {
-  color: #33ee21;
-}
-
-.search-bar {
-  background-color: transparent;
-  border: dotted 2px #33ee21;
-  border-radius: 0.3em;
-  width: auto;
-  padding: 2px;
-}
-
-.search-bar::placeholder {
-  color: #33ee21;
-  text-align: center;
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.7em;
-  letter-spacing: 1px;
-}
-
-.lightBtn {
-  border-radius: 50%;
-  border: none;
-  color: #33ee21;
-  font-weight: bold;
-  width: 80px;
-  height: 80px;
-  background: #410744; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #e54b7b, #410744);
-  background: linear-gradient(to bottom, #e54b7b, #410744);
-  box-shadow: inset 0px 3px 26px 8px rgba(65, 7, 68, 0.5);
-}
 /*---------------------------------------------------------------RESPONSIVE MEDIA QUERIES*/
 
 @media only screen and (max-width: 575px) {
@@ -187,7 +104,7 @@
     font-size: 1.3em;
   }
 
-  .forecast {
+  .description {
     font-size: 1.1em;
   }
 }
@@ -205,18 +122,6 @@
     font-size: 1em;
   }
 
-  .search-bar {
-    width: 70%;
-  }
-
-  .small-btn {
-    font-size: 1.2em;
-  }
-
-  form {
-    padding-bottom: 20px;
-  }
-
   .date-list {
     padding-left: 15px;
     font-size: 1.5em;
@@ -226,7 +131,7 @@
     font-size: 2.7em;
   }
 
-  .forecast {
+  .description {
     font-size: 2em;
   }
 }

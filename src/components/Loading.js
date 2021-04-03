@@ -1,7 +1,6 @@
 import React from "react";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import "./Loading.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPowerOff,
