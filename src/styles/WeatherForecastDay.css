@@ -1,10 +1,13 @@
+.weatherForecastDay {
+  display: inline;
+  padding: 15px;
+}
+
 .forecast {
-  margin: 0 auto;
   padding: 0;
   font-family: "Cutive Mono", monospace;
   list-style: none;
   font-size: 1.3em;
-  margin: 0 auto;
   color: #2c1148;
   /* align-content: center; */
 }

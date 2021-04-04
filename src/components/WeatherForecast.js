@@ -17,12 +17,13 @@ export default function WeatherForecast(props) {
   }
   if (loaded && forecast.lat === lat && forecast.lon === lon) {
     return (
-      <div className='weatherForecast'>
-        <div className='row'>
-          <div className='col'>
-            <WeatherForecastDay data={forecast} />
-          </div>
-        </div>
+      <div className='weatherForecast row'>
+        <WeatherForecastDay data={forecast.daily[1]} />
+        <WeatherForecastDay data={forecast.daily[2]} />
+        <WeatherForecastDay data={forecast.daily[3]} />
+        <WeatherForecastDay data={forecast.daily[4]} />
+        <WeatherForecastDay data={forecast.daily[5]} />
+        <WeatherForecastDay data={forecast.daily[6]} />
       </div>
     );
   } else {

@@ -8,18 +8,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function WeatherForecastDay(props) {
+  console.log(props);
   function maxTemperature() {
-    let temperature = Math.round(props.data.daily[0].temp.max);
+    let temperature = Math.round(props.data.temp.max);
     return `${temperature}°`;
   }
 
   function minTemperature() {
-    let temperature = Math.round(props.data.daily[0].temp.min);
+    let temperature = Math.round(props.data.temp.min);
     return `${temperature}°`;
   }
 
   function day() {
-    let date = new Date(props.data.daily[0].dt * 1000);
+    let date = new Date(props.data.dt * 1000);
     let day = date.getDay();
     let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     return days[day];
@@ -27,9 +28,9 @@ export default function WeatherForecastDay(props) {
 
   return (
     <div className='weatherForecastDay'>
-      <div className='forecast'>{day()}</div>
-      <WeatherIcon code={props.data.daily[0].weather[0].icon} size={40} />
-      <div className='forecast'>
+      <h1 className='forecast'>{day()}</h1>
+      <WeatherIcon code={props.data.weather[0].icon} size={40} />
+      <p className='forecast'>
         <span className='temp-max'>
           <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' />
           {maxTemperature()}
@@ -38,7 +39,7 @@ export default function WeatherForecastDay(props) {
           <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />
           {minTemperature()}
         </span>
-      </div>
+      </p>
     </div>
   );
 }

@@ -75,14 +75,9 @@ export default function Weather(props) {
             <div className='col-md-12'>
               <WeatherInfo data={weatherData} />
             </div>
-          </div>
-          <div className='row'>
             <div className='col-md-12 mt-5'>
               <WeatherForecast coordinates={weatherData.coordinates} />
             </div>
-          </div>
-          <div className='row'>
-            <div className='col-md-12'></div>
           </div>
         </div>
       </div>
