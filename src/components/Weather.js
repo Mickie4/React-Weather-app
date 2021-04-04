@@ -14,7 +14,7 @@ export default function Weather(props) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState(props.defaultCity);
-  const apiKey = "0603e85b4ce086e6bb52d7cdc7bcffb5";
+  const apiKey = "c6457dceef34bc5b29fe61bd0c8168e1";
   //c6457dceef34bc5b29fe61bd0c8168e1, 0603e85b4ce086e6bb52d7cdc7bcffb5
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
