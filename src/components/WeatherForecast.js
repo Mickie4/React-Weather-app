@@ -7,71 +7,38 @@ import {
   faLongArrowAltUp,
   faLongArrowAltDown,
 } from "@fortawesome/free-solid-svg-icons";
+
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
-  const apiKey = "0603e85b4ce086e6bb52d7cdc7bcffb5";
-  let longitude = props.coordinates.lon;
-  let latitude = props.coordinates.lat;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  const apiKey = "17f56a92dfdfe63b71c98d96a2a4942a";
+  //c6457dceef34bc5b29fe61bd0c8168e1, 0603e85b4ce086e6bb52d7cdc7bcffb5, 17f56a92dfdfe63b71c98d96a2a4942a, 5f472b7acba333cd8a035ea85a0d4d4c
+  let lon = props.coordinates.lon;
+  let lat = props.coordinates.lat;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
   function handleResponse(response) {
-    setForecast(response.data);
+    setForecast(response.data.daily);
     setLoaded(true);
   }
-  if (loaded && forecast.lat === latitude && forecast.lon === longitude) {
+  if (loaded && forecast.lat === lat && forecast.lon === lon) {
     return (
       <div className='weatherForecast'>
-        <div className='container-fluid'>
-          <ul className='forecast'>
-            <li className='p-1'>
-              <p>16:00</p>
-              <WeatherIcon code='01d' size={40} />
-              <p>
-                <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 18°{" "}
-                <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' /> 10°
-              </p>
-            </li>
-            <li className='p-1'>
-              <p>16:00</p>
-              <WeatherIcon code='01d' size={40} />
-              <p>
-                <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 18°{" "}
-                <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' /> 10°
-              </p>
-            </li>
-            <li className='p-1'>
-              <p>16:00</p>
-              <WeatherIcon code='01d' size={40} />
-              <p>
-                <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 18°{" "}
-                <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' /> 10°
-              </p>
-            </li>
-            <li className='p-1'>
-              <p>16:00</p>
-              <WeatherIcon code='01d' size={40} />
-              <p>
-                <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 18°{" "}
-                <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' /> 10°
-              </p>
-            </li>
-            <li className='p-1'>
-              <p>16:00</p>
-              <WeatherIcon code='01d' size={40} />
-              <p>
-                <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 18°{" "}
-                <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' /> 10°
-              </p>
-            </li>
-            <li className='p-1'>
-              <p>16:00</p>
-              <WeatherIcon code='01d' size={40} />
-              <p>
-                <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' /> 18°{" "}
-                <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' /> 10°
-              </p>
-            </li>
-          </ul>
+        <div className='row'>
+          <div className='col'>
+            <div className='weatherForecast-day'>{forecast[0].dt}</div>
+            <WeatherIcon code={forecast[0].weather[0].icon} size={40} />
+            <div className='weatherForecast-temps'>
+              <span className='temp-max'>
+                <FontAwesomeIcon icon={faLongArrowAltUp} size='xs' />
+                {forecast[0].temp.max}°
+              </span>
+              <span className='temp-min'>
+                <FontAwesomeIcon icon={faLongArrowAltDown} size='xs' />
+                {forecast[0].temp.min}°
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -2,12 +2,6 @@ import React from "react";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../styles/Loading.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPowerOff,
-  faLocationArrow,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
 
 export default function Loading() {
   return (
