@@ -1,0 +1,32 @@
+.current-temp {
+  display: inline;
+  vertical-align: middle;
+  font-family: "Orbitron", sans-serif;
+  color: #33ee21;
+  font-size: 3.5em;
+}
+
+.temp-btn {
+  vertical-align: middle;
+  background-color: transparent;
+  color: #ee9945;
+  border: none;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1em;
+}
+
+.temp-btn-active {
+  color: #33ee21;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  font-family: "Orbitron", sans-serif;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 425px) {
+  .current-temp {
+    font-size: 3.3em;
+  }
+}

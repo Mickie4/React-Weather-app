@@ -11,3 +11,9 @@
   color: #2c1148;
   /* align-content: center; */
 }
+
+@media only screen and (max-width: 375px) {
+  .forecast {
+    font-size: 1.2em;
+  }
+}
