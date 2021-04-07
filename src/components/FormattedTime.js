@@ -7,5 +7,5 @@ export default function FormattedTime(props) {
     hour: "2-digit",
     minute: "2-digit",
   });
-  return <div className='formattedTime'>{currentTime}</div>;
+  return <div className='formattedTime'>Local time: {currentTime}</div>;
 }
