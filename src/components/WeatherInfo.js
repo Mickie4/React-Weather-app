@@ -15,10 +15,10 @@ export default function WeatherInfo(props) {
           </h1>
           <ul className='date-list'>
             <li className='current-date'>
-              <FormattedDate date={props.data.date} />
+              {/* <FormattedDate date={props.data.date} /> */}
             </li>
             <li className='current-time'>
-              <FormattedTime date={props.data.date} />
+              <FormattedTime data={props.data} />
             </li>
           </ul>
         </div>
