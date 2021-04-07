@@ -15,7 +15,7 @@ export default function WeatherInfo(props) {
           </h1>
           <ul className='date-list'>
             <li className='current-date'>
-              {/* <FormattedDate date={props.data.date} /> */}
+              <FormattedDate date={new Date(props.data.date * 1000)} />
             </li>
             <li className='current-time'>
               <FormattedTime data={props.data} />
